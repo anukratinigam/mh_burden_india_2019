@@ -1,11 +1,11 @@
-# Economic Burden of Suicide in India in 2019
+# Economic Burden of Suicide Deaths in India in 2019
 
 Anukrati Nigam MSc BTech; Madhurima Vuddemary MBBS Student; Siddhesh Zadey BSMS, MScGH
 
 This repository serves as the code for the paper titled "Economic Burden of Suicide in India in 2019".
 
 The repository consists of the following scripts:
-## A. Calculation of economic burden of suicide in India in 2019
+## A. Calculation of economic burden of suicide deaths in India in 2019
 1. ASAR_MH_EB_India_calc.R - to calculate monetary value of years of lives lost (MVYLL) based on observed life expectancy in Indian state in 2019 for all age groups for 28 States and 3 union territories in India and both sexes.
 2. ASAR_MH_EB_India_calc_world_LE.R - to calculate MVYLL based on highest life expectancy globally in 2019  for working age groups for 28 States and 3 union territories in India and both sexes.
 3. ASAR_MH_EB_India_calc_india_LE.R - to calculate MVYLL based on highest life expectancy in any Indian state in 2019 for all age groups for 28 States and 3 union territories in India and both sexes. 
