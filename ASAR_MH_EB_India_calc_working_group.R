@@ -197,15 +197,25 @@ calc_mvyll <- function(r,k,SD, NGDPC){
       return(mvyll)}
 }
 
-calc_tmvyll_wg <- function(SD_20_24, SD_25_29, SD_30_34,
-                         SD_35_39, SD_40_44, SD_45_49,
-                         SD_50_54, SD_55_59, SD_60_64,
-                         NGDP, r,
-                         k_20_24, k_25_29, k_30_34,
-                         k_35_39, k_40_44, k_45_49,
-                         k_50_54, k_55_59, k_60_64
-                         ){
+calc_tmvyll_wg <- function( SD_20_24, SD_25_29, SD_30_34,
+                            SD_35_39, SD_40_44, SD_45_49,
+                            SD_50_54, SD_55_59, SD_60_64,
+                            SD_20_24_lb, SD_25_29_lb, SD_30_34_lb,
+                            SD_35_39_lb, SD_40_44_lb, SD_45_49_lb,
+                            SD_50_54_lb, SD_55_59_lb, SD_60_64_lb,
+                            SD_20_24_ub, SD_25_29_ub, SD_30_34_ub,
+                            SD_35_39_ub, SD_40_44_ub, SD_45_49_ub,
+                            SD_50_54_ub, SD_55_59_ub, SD_60_64_ub,
+                            
+                            NGDP, r, 
+                            k_20_24, k_25_29, k_30_34,
+                            k_35_39, k_40_44, k_45_49,
+                            k_50_54, k_55_59, k_60_64
+){
   tmvyll = 0
+  tmvyll_lb = 0
+  tmvyll_ub = 0
+  
   mvyll_20_24 = calc_mvyll(r, k = k_20_24, SD = SD_20_24, NGDPC = NGDP)
   mvyll_25_29 = calc_mvyll(r, k = k_25_29, SD = SD_25_29, NGDPC = NGDP)
   mvyll_30_34 = calc_mvyll(r, k = k_30_34, SD = SD_30_34, NGDPC = NGDP)
@@ -215,15 +225,48 @@ calc_tmvyll_wg <- function(SD_20_24, SD_25_29, SD_30_34,
   mvyll_50_54 = calc_mvyll(r, k = k_50_54, SD = SD_50_54, NGDPC = NGDP)
   mvyll_55_59 = calc_mvyll(r, k = k_55_59, SD = SD_55_59, NGDPC = NGDP)
   mvyll_60_64 = calc_mvyll(r, k = k_60_64, SD = SD_60_64, NGDPC = NGDP)
+  
+  #Lower bound
+  mvyll_20_24_lb = calc_mvyll(r, k = k_20_24, SD = SD_20_24_lb, NGDPC = NGDP)
+  mvyll_25_29_lb = calc_mvyll(r, k = k_25_29, SD = SD_25_29_lb, NGDPC = NGDP)
+  mvyll_30_34_lb = calc_mvyll(r, k = k_30_34, SD = SD_30_34_lb, NGDPC = NGDP)
+  mvyll_35_39_lb = calc_mvyll(r, k = k_35_39, SD = SD_35_39_lb, NGDPC = NGDP)
+  mvyll_40_44_lb = calc_mvyll(r, k = k_40_44, SD = SD_40_44_lb, NGDPC = NGDP)
+  mvyll_45_49_lb = calc_mvyll(r, k = k_45_49, SD = SD_45_49_lb, NGDPC = NGDP)
+  mvyll_50_54_lb = calc_mvyll(r, k = k_50_54, SD = SD_50_54_lb, NGDPC = NGDP)
+  mvyll_55_59_lb = calc_mvyll(r, k = k_55_59, SD = SD_55_59_lb, NGDPC = NGDP)
+  mvyll_60_64_lb = calc_mvyll(r, k = k_60_64, SD = SD_60_64_lb, NGDPC = NGDP)
+  
+  #Upper bound
+  mvyll_20_24_ub = calc_mvyll(r, k = k_20_24, SD = SD_20_24_ub, NGDPC = NGDP)
+  mvyll_25_29_ub = calc_mvyll(r, k = k_25_29, SD = SD_25_29_ub, NGDPC = NGDP)
+  mvyll_30_34_ub = calc_mvyll(r, k = k_30_34, SD = SD_30_34_ub, NGDPC = NGDP)
+  mvyll_35_39_ub = calc_mvyll(r, k = k_35_39, SD = SD_35_39_ub, NGDPC = NGDP)
+  mvyll_40_44_ub = calc_mvyll(r, k = k_40_44, SD = SD_40_44_ub, NGDPC = NGDP)
+  mvyll_45_49_ub = calc_mvyll(r, k = k_45_49, SD = SD_45_49_ub, NGDPC = NGDP)
+  mvyll_50_54_ub = calc_mvyll(r, k = k_50_54, SD = SD_50_54_ub, NGDPC = NGDP)
+  mvyll_55_59_ub = calc_mvyll(r, k = k_55_59, SD = SD_55_59_ub, NGDPC = NGDP)
+  mvyll_60_64_ub = calc_mvyll(r, k = k_60_64, SD = SD_60_64_ub, NGDPC = NGDP)
+  
   tmvyll = sum(mvyll_20_24,mvyll_25_29,
                mvyll_30_34,mvyll_35_39,mvyll_40_44,mvyll_45_49,
                mvyll_50_54,mvyll_55_59,mvyll_60_64)
-               
+  tmvyll_lb = sum(mvyll_20_24_lb,mvyll_25_29_lb,
+                  mvyll_30_34_lb,mvyll_35_39_lb,mvyll_40_44_lb,mvyll_45_49_lb,
+                  mvyll_50_54_lb,mvyll_55_59_lb,mvyll_60_64_lb)
+  tmvyll_ub = sum(mvyll_20_24_ub,mvyll_25_29_ub,
+                  mvyll_30_34_ub,mvyll_35_39_ub,mvyll_40_44_ub,mvyll_45_49_ub,
+                  mvyll_50_54_ub,mvyll_55_59_ub,mvyll_60_64_ub)
   temp_tmvyll_df = data.frame(tmvyll, 
                               mvyll_20_24,mvyll_25_29,
                               mvyll_30_34,mvyll_35_39,mvyll_40_44,mvyll_45_49,
-                              mvyll_50_54,mvyll_55_59,mvyll_60_64)
-                              
+                              mvyll_50_54,mvyll_55_59,mvyll_60_64,
+                              tmvyll_lb,mvyll_20_24_lb,mvyll_25_29_lb,
+                              mvyll_30_34_lb,mvyll_35_39_lb,mvyll_40_44_lb,mvyll_45_49_lb,
+                              mvyll_50_54_lb,mvyll_55_59_lb,mvyll_60_64_lb,
+                              tmvyll_ub, mvyll_20_24_ub,mvyll_25_29_ub,
+                              mvyll_30_34_ub,mvyll_35_39_ub,mvyll_40_44_ub,mvyll_45_49_ub,
+                              mvyll_50_54_ub,mvyll_55_59_ub,mvyll_60_64_ub)
   return(temp_tmvyll_df)
 }
 
@@ -243,18 +286,37 @@ state_list <- c("Andhra Pradesh","Arunachal Pradesh","Assam","Bihar",
 tmvyll_df_wg3 <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                         mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                         mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                        mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                        mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),
+                        mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                        mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                        mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                        tmvyll_ub = numeric(), 
+                        mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                        mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                        mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
                         
 for( s in state_list){
   tmvyll_df_m_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
                                  
   tmvyll_df_f_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
                                  
   r_val = 0.03
   
@@ -290,6 +352,38 @@ for( s in state_list){
   SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
   SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
   SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  
+  # SD Lower bound values
+  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
+  
+  #SD Upper bound values
+  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
+  
   
   # Place state name
   #tmvyll_df_m_temp$state_name <- s
@@ -311,6 +405,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val,
                                   k_20_24 = k_male_20_24_state, 
@@ -337,7 +449,28 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_m_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_m_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_m_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64,
+                                tmvyll_lb = tmvyll_val_m_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_m_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_m_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_m_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_m_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_m_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_m_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_m_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_m_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_m_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_m_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_m_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_m_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_m_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_m_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_m_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_m_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_m_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_m_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_m_temp$mvyll_60_64_ub)
 
   tmvyll_df_wg3 <- rbind(tmvyll_df_wg3, tmvyll_df_m_temp)
   
@@ -354,6 +487,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_20_24 = k_female_20_24_state, 
@@ -379,10 +530,36 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_f_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_f_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_f_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64,
+                                tmvyll_lb = tmvyll_val_f_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_f_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_f_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_f_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_f_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_f_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_f_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_f_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_f_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_f_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_f_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_f_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_f_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_f_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_f_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_f_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_f_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_f_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_f_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_f_temp$mvyll_60_64_ub)
   tmvyll_df_wg3 <- rbind(tmvyll_df_wg3, tmvyll_df_f_temp)
   
 }
+tmvyll_df_wg3_usd <- tmvyll_df_wg3
+tmvyll_df_wg3_usd[,3:32] <- tmvyll_df_wg3_usd[,3:32]/70.394
+
+write.csv(tmvyll_df_wg3, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r3_INR.csv")
+write.csv(tmvyll_df_wg3_usd, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r3_USD.csv")
 
 
 #################
@@ -392,18 +569,36 @@ for( s in state_list){
 tmvyll_df_wg5 <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                             mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                             mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                            mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                            mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                            mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                            mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                            tmvyll_ub = numeric(), 
+                            mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                            mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                            mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
 
 for( s in state_list){
   tmvyll_df_m_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
   
   tmvyll_df_f_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
   r_val = 0.05
   
   #K for males
@@ -438,6 +633,38 @@ for( s in state_list){
   SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
   SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
   SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  
+  # SD Lower bound values
+  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
+  
+  #SD Upper bound values
+  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
+  
   
   # Place state name
   #tmvyll_df_m_temp$state_name <- s
@@ -459,6 +686,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_20_24 = k_male_20_24_state, 
@@ -484,7 +729,28 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_m_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_m_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_m_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64,
+                                tmvyll_lb = tmvyll_val_m_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_m_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_m_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_m_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_m_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_m_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_m_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_m_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_m_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_m_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_m_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_m_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_m_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_m_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_m_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_m_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_m_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_m_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_m_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_m_temp$mvyll_60_64_ub)
   tmvyll_df_wg5 <- rbind(tmvyll_df_wg5, tmvyll_df_m_temp)
   
   
@@ -500,6 +766,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_20_24 = k_female_20_24_state, 
@@ -526,10 +810,38 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_f_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_f_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_f_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64,
+                                tmvyll_lb = tmvyll_val_f_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_f_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_f_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_f_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_f_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_f_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_f_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_f_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_f_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_f_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_f_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_f_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_f_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_f_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_f_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_f_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_f_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_f_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_f_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_f_temp$mvyll_60_64_ub)
   tmvyll_df_wg5 <- rbind(tmvyll_df_wg5, tmvyll_df_f_temp)
   
 }
+
+tmvyll_df_wg5_usd <- tmvyll_df_wg5
+tmvyll_df_wg5_usd[,3:32] <- tmvyll_df_wg5_usd[,3:32]/70.394
+
+write.csv(tmvyll_df_wg5, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r5_INR.csv")
+write.csv(tmvyll_df_wg5_usd, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r5_USD.csv")
+
 
 #################
 # r value is 10
@@ -538,18 +850,36 @@ for( s in state_list){
 tmvyll_df_wg10 <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                             mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                             mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                            mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                            mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                            mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                            mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                            tmvyll_ub = numeric(), 
+                            mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                            mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                            mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
 
 for( s in state_list){
   tmvyll_df_m_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
   
   tmvyll_df_f_temp <- data.frame(state_name = character(), gender = character(), tmvyll = numeric(), 
                                  mvyll_20_24 = numeric(),mvyll_25_29 = numeric(),
                                  mvyll_30_34 = numeric(),mvyll_35_39 = numeric(),mvyll_40_44 = numeric(),mvyll_45_49 = numeric(),
-                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric())
+                                 mvyll_50_54 = numeric(),mvyll_55_59 = numeric(),mvyll_60_64 = numeric(),mvyll_20_24_lb = numeric(),mvyll_25_29_lb = numeric(),
+                                 mvyll_30_34_lb = numeric(),mvyll_35_39_lb = numeric(),mvyll_40_44_lb = numeric(),mvyll_45_49_lb = numeric(),
+                                 mvyll_50_54_lb = numeric(),mvyll_55_59_lb = numeric(),mvyll_60_64_lb = numeric(),
+                                 tmvyll_ub = numeric(), 
+                                 mvyll_20_24_ub = numeric(),mvyll_25_29_ub = numeric(),
+                                 mvyll_30_34_ub = numeric(),mvyll_35_39_ub = numeric(),mvyll_40_44_ub = numeric(),mvyll_45_49_ub = numeric(),
+                                 mvyll_50_54_ub = numeric(),mvyll_55_59_ub = numeric(),mvyll_60_64_ub = numeric())
   
   r_val = 0.10
   
@@ -585,6 +915,38 @@ for( s in state_list){
   SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
   SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
   SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
+  
+  # SD Lower bound values
+  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
+  
+  #SD Upper bound values
+  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
+  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
+  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
+  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
+  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
+  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
+  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
+  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
+  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
+  
   
   # Place state name
   #tmvyll_df_m_temp$state_name <- s
@@ -606,6 +968,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_20_24 = k_male_20_24_state, 
@@ -632,7 +1012,28 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_m_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_m_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_m_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_m_temp$mvyll_60_64,
+                                tmvyll_lb = tmvyll_val_m_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_m_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_m_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_m_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_m_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_m_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_m_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_m_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_m_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_m_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_m_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_m_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_m_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_m_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_m_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_m_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_m_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_m_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_m_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_m_temp$mvyll_60_64_ub)
   tmvyll_df_wg10 <- rbind(tmvyll_df_wg10, tmvyll_df_m_temp)
   
   
@@ -648,6 +1049,24 @@ for( s in state_list){
                                   SD_50_54 = SD_50_54_state, 
                                   SD_55_59 = SD_55_59_state, 
                                   SD_60_64 = SD_60_64_state,
+                                  SD_20_24_lb = SD_20_24_state_lb, 
+                                  SD_25_29_lb = SD_25_29_state_lb, 
+                                  SD_30_34_lb = SD_30_34_state_lb,
+                                  SD_35_39_lb = SD_35_39_state_lb, 
+                                  SD_40_44_lb = SD_40_44_state_lb, 
+                                  SD_45_49_lb = SD_45_49_state_lb,
+                                  SD_50_54_lb = SD_50_54_state_lb, 
+                                  SD_55_59_lb = SD_55_59_state_lb, 
+                                  SD_60_64_lb = SD_60_64_state_lb,
+                                  SD_20_24_ub = SD_20_24_state_ub, 
+                                  SD_25_29_ub = SD_25_29_state_ub, 
+                                  SD_30_34_ub = SD_30_34_state_ub,
+                                  SD_35_39_ub = SD_35_39_state_ub, 
+                                  SD_40_44_ub = SD_40_44_state_ub, 
+                                  SD_45_49_ub = SD_45_49_state_ub,
+                                  SD_50_54_ub = SD_50_54_state_ub, 
+                                  SD_55_59_ub = SD_55_59_state_ub, 
+                                  SD_60_64_ub = SD_60_64_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_20_24 = k_female_20_24_state, 
@@ -674,9 +1093,34 @@ for( s in state_list){
                                 mvyll_45_49 = tmvyll_val_f_temp$mvyll_45_49,
                                 mvyll_50_54 = tmvyll_val_f_temp$mvyll_50_54,
                                 mvyll_55_59 = tmvyll_val_f_temp$mvyll_55_59,
-                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64)
+                                mvyll_60_64 = tmvyll_val_f_temp$mvyll_60_64,tmvyll_lb = tmvyll_val_f_temp$tmvyll_lb,
+                                mvyll_20_24_lb = tmvyll_val_f_temp$mvyll_20_24_lb,
+                                mvyll_25_29_lb = tmvyll_val_f_temp$mvyll_25_29_lb,
+                                mvyll_30_34_lb = tmvyll_val_f_temp$mvyll_30_34_lb,
+                                mvyll_35_39_lb = tmvyll_val_f_temp$mvyll_35_39_lb,
+                                mvyll_40_44_lb = tmvyll_val_f_temp$mvyll_40_44_lb,
+                                mvyll_45_49_lb = tmvyll_val_f_temp$mvyll_45_49_lb,
+                                mvyll_50_54_lb = tmvyll_val_f_temp$mvyll_50_54_lb,
+                                mvyll_55_59_lb = tmvyll_val_f_temp$mvyll_55_59_lb,
+                                mvyll_60_64_lb = tmvyll_val_f_temp$mvyll_60_64_lb,
+                                
+                                tmvyll_ub = tmvyll_val_f_temp$tmvyll_ub,
+                                mvyll_20_24_ub = tmvyll_val_f_temp$mvyll_20_24_ub,
+                                mvyll_25_29_ub = tmvyll_val_f_temp$mvyll_25_29_ub,
+                                mvyll_30_34_ub = tmvyll_val_f_temp$mvyll_30_34_ub,
+                                mvyll_35_39_ub = tmvyll_val_f_temp$mvyll_35_39_ub,
+                                mvyll_40_44_ub = tmvyll_val_f_temp$mvyll_40_44_ub,
+                                mvyll_45_49_ub = tmvyll_val_f_temp$mvyll_45_49_ub,
+                                mvyll_50_54_ub = tmvyll_val_f_temp$mvyll_50_54_ub,
+                                mvyll_55_59_ub = tmvyll_val_f_temp$mvyll_55_59_ub,
+                                mvyll_60_64_ub = tmvyll_val_f_temp$mvyll_60_64_ub)
   
   tmvyll_df_wg10 <- rbind(tmvyll_df_wg10, tmvyll_df_f_temp)
   
 }
 
+tmvyll_df_wg10_usd <- tmvyll_df_wg10
+tmvyll_df_wg10_usd[,3:32] <- tmvyll_df_wg10_usd[,3:32]/70.394
+
+write.csv(tmvyll_df_wg10, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r10_INR.csv")
+write.csv(tmvyll_df_wg10_usd, file = "~/ASAR/Mental_health_econ_burden_india/UA_wg_r10_USD.csv")
