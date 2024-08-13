@@ -1,4 +1,4 @@
-!/bin/R
+#!/bin/R
 # DriverScriptMH2019.R
 # By: Anukrati Nigam
 
@@ -8,6 +8,9 @@
 
 #Read in the Function file.
 #source(~/FunctionScriptMH2019.R)
+
+#Use get_data_per_state function if the data has individual male and female 
+# values per state.
 
 #TMVYLL_3	TMVYLL for all age groups at r of 0.03
 plot_usd_bar_plot_figures(path_name = "~/ASAR/Mental_health_econ_burden_india/Figures/06_Jan_24_AnuN_Eco_Burden_Dataset.xlsx", 

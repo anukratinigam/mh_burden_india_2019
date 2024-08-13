@@ -1,10 +1,20 @@
-#/bin/R
+#!/bin/R
 # FunctionScriptMH2019.R
 # By: Anukrati Nigam
 
-#######################
-### Function script ###
-#######################
+####################################################
+### Function script for visualization of figures ###
+####################################################
+
+### Combine (Add) rows for both sexes for each state ###
+get_data_per_state <- function(df){
+  df %>% group_by(state_name) %>% 
+    summarise(across(where(is.numeric),sum),
+              gender = paste(gender,collapse = " & ")) %>%
+    mutate(gender = ifelse(gender == "Male & Female","Total",gender))
+  
+}
+
 
 plot_usd_bar_plot_figures <- function(path_name, sheet_name_1, 
                                       sheet_name_2,
@@ -15,6 +25,9 @@ plot_usd_bar_plot_figures <- function(path_name, sheet_name_1,
                                       fig_name_3){
   #PLOT 1 - BAR PLOT (Total with age categories)
   df_plot_1 <- read_xlsx(path = path_name, sheet = sheet_name_1)
+  
+  #df_plot_1 <- get_data_per_state(df_plot_1)
+  
   df_plot_1 %<>% tidyr::pivot_longer(cols = 3:length(colnames(df_plot_1)), names_to = "Category", values_to = "MVYLL")
   
   #tmvyll_label <- read_xlsx(path = "~/ASAR/18_JUL_23_AnuN_economic_burden_results.xlsx", 
@@ -44,6 +57,7 @@ plot_usd_bar_plot_figures <- function(path_name, sheet_name_1,
   
   #PLOT 2 - BAR PLOT (Total with age categories and gender)
   df_plot_2 <- read_xlsx(path = path_name, sheet = sheet_name_2)
+  #df_plot_2 <- get_data_per_state(df_plot_2)
   df_plot_2 %<>% tidyr::pivot_longer(cols = 4:length(colnames(df_plot_2)), names_to = "Category", values_to = "MVYLL")
   
   #tmvyll_label <- read_xlsx(path = "~/ASAR/18_JUL_23_AnuN_economic_burden_results.xlsx", 
@@ -72,6 +86,7 @@ plot_usd_bar_plot_figures <- function(path_name, sheet_name_1,
   
   #PLOT 3 - Range plot
   df_plot_3 <- read_xlsx(path = path_name, sheet = sheet_name_3)
+  #df_plot_3 <- get_data_per_state(df_plot_3)
   tmvyll_temp <- df_plot_3[,c("state_name","gender", col_cal)] 
   tmvyll_temp$tmvyll_USD <- round(tmvyll_temp[,3]/70.394,0)
   tmvyll_temp <- tmvyll_temp[,c("state_name","gender","tmvyll_USD")]
@@ -104,3 +119,4 @@ plot_usd_bar_plot_figures <- function(path_name, sheet_name_1,
 #  dev.off()
 
 }
+
