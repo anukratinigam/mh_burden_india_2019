@@ -20,4 +20,4 @@ The repository consists of the following scripts:
 
 ## C. Validation of Code
 1. mentalhealth_script_africa.R - Script to validate our code by applying the code on Kirigia's papers on economic burden of maternal deaths in Africa and economic burden of suicide deaths in Africa.
-2. Comparison_Analysis.R - Script to calculate percent difference between old and new calculations.
+2. Comparison_Analysis.R - Script to calculate percent change between old and new calculations.
