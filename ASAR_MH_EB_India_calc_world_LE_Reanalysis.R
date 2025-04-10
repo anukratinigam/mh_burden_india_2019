@@ -7,13 +7,12 @@
 ## for all age groups for 28 States and 3 union territories in India and both sexes. ##
 #######################################################################################
 
-
 ### As compared to world LE
 #Switzerland had the highest life expectancy in 2019-20 - Males = 81.75 and Females = 85.27
 
 # State GDP
 
-State_GDP <- read_excel("ASAR/Mental_health_econ_burden_india/13_MAY_23_MV_NHA_state_gdp.xlsx", 
+State_GDP <- read_excel("~/ASAR/Mental_health_econ_burden_india/13_MAY_23_MV_NHA_state_gdp.xlsx", 
                         skip = 1)
 State_GDP <- na.omit(State_GDP)
 #Using Puducherry GDP as an estimate for Other UTs.
@@ -23,116 +22,124 @@ State_GDP$State[which(State_GDP$State == "Puducherry")] <- "Other Union Territor
 # State wise and gender wise k values for each age category
 
 # Males
-LE_Male_10_to_14 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_10_to_14_years")
+LE_Male_10_to_14 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_10_to_14_years", .name_repair = "minimal")
+
+LE_Male_15_to_19 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_15_to_19_years", .name_repair = "minimal")
+LE_Male_20_to_24 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_20_to_24_years", .name_repair = "minimal")
+LE_Male_25_to_29 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_25_to_29_years", .name_repair = "minimal")
+LE_Male_30_to_34 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_30_to_34_years", .name_repair = "minimal")
+LE_Male_35_to_39 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_35_to_39_years", .name_repair = "minimal")
+LE_Male_40_to_44 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_40_to_44_years", .name_repair = "minimal")
+LE_Male_45_to_49 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_45_to_49_years", .name_repair = "minimal")
+LE_Male_50_to_54 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_50_to_54_years", .name_repair = "minimal")
+LE_Male_55_to_59 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_55_to_59_years", .name_repair = "minimal")
+LE_Male_60_to_64 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_60_to_64_years", .name_repair = "minimal")
+LE_Male_65_to_69 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_65_to_69_years", .name_repair = "minimal")
+LE_Male_70_to_74 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_70_to_74_years", .name_repair = "minimal")
+LE_Male_75_to_79 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_75_to_79_years", .name_repair = "minimal")
+LE_Male_80_to_84 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_80_to_84_years", .name_repair = "minimal")
+LE_Male_85_to_89 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_85_to_89_years", .name_repair = "minimal")
+LE_Male_90_to_94 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                               sheet = "Male_90_to_94_years", .name_repair = "minimal")
+LE_Male_95_onwards <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Male_95+", .name_repair = "minimal")
+
+
+#Female LE
+LE_Female_10_to_14 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_10_to_14_years", .name_repair = "minimal")
+LE_Female_15_to_19 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_15_to_19_years", .name_repair = "minimal")
+LE_Female_20_to_24 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_20_to_24_years", .name_repair = "minimal")
+LE_Female_25_to_29 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_25_to_29_years", .name_repair = "minimal")
+LE_Female_30_to_34 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_30_to_34_years", .name_repair = "minimal")
+LE_Female_35_to_39 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_35_to_39_years", .name_repair = "minimal")
+LE_Female_40_to_44 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_40_to_44_years", .name_repair = "minimal")
+LE_Female_45_to_49 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_45_to_49_years", .name_repair = "minimal")
+LE_Female_50_to_54 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_50_to_54_years", .name_repair = "minimal")
+LE_Female_55_to_59 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_55_to_59_years", .name_repair = "minimal")
+LE_Female_60_to_64 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_60_to_64_years", .name_repair = "minimal")
+LE_Female_65_to_69 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_65_to_69_years", .name_repair = "minimal")
+LE_Female_70_to_74 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_70_to_74_years", .name_repair = "minimal")
+LE_Female_75_to_79 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_75_to_79_years", .name_repair = "minimal")
+LE_Female_80_to_84 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_80_to_84_years", .name_repair = "minimal")
+LE_Female_85_to_89 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_85_to_89_years", .name_repair = "minimal")
+LE_Female_90_to_94 <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                 sheet = "Female_90_to_94_years", .name_repair = "minimal")
+LE_Female_95_onwards <- read_excel("~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/25_FEB_25_MV_Suicide_econ_deaths.xlsx",
+                                   sheet = "Female_95+", .name_repair = "minimal")
+
+
+
+# Males
 LE_Male_10_to_14$k_le <- 81.75 - 12
-LE_Male_15_to_19 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_15_to_19_years")
 LE_Male_15_to_19$k_le<- 81.75 - 17
-LE_Male_20_to_24 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_20_to_24_years")
 LE_Male_20_to_24$k_le <- 81.75 - 22
-LE_Male_25_to_29 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_25_to_29_years")
 LE_Male_25_to_29$k_le <- 81.75 - 27
-LE_Male_30_to_34 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_30_to_34_years")
 LE_Male_30_to_34$k_le <- 81.75 - 32
-LE_Male_35_to_39 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_35_to_39_years")
 LE_Male_35_to_39$k_le <- 81.75 - 37
-LE_Male_40_to_44 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_40_to_44_years")
 LE_Male_40_to_44$k_le <- 81.75 - 42
-LE_Male_45_to_49 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_45_to_49_years")
 LE_Male_45_to_49$k_le <- 81.75 - 47
-LE_Male_50_to_54 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_50_to_54_years")
 LE_Male_50_to_54$k_le <- 81.75 - 52
-LE_Male_55_to_59 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_55_to_59_years")
 LE_Male_55_to_59$k_le <- 81.75 - 57
-LE_Male_60_to_64 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_60_to_64_years")
 LE_Male_60_to_64$k_le <- 81.75 - 62
-LE_Male_65_to_69 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_65_to_69_years")
 LE_Male_65_to_69$k_le <- 81.75 - 67
-LE_Male_70_to_74 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_70_to_74_years")
 LE_Male_70_to_74$k_le <- 81.75 - 72
-LE_Male_75_to_79 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_75_to_79_years")
 LE_Male_75_to_79$k_le <- 81.75 - 77
-LE_Male_80_to_84 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_80_to_84_years")
 LE_Male_80_to_84$k_le <- 81.75 - 82
-LE_Male_85_to_89 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_85_to_89_years")
 LE_Male_85_to_89$k_le <- 81.75 - 87
-LE_Male_90_to_94 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                               sheet = "Male_90_to_94_years")
 LE_Male_90_to_94$k_le <- 81.75 - 92
-LE_Male_95_onwards <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Male_95+")
 LE_Male_95_onwards$k_le <- 81.75 - 97
 
 
 #Female LE
-LE_Female_10_to_14 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_10_to_14")
 LE_Female_10_to_14$k_le <- 85.27 - 12
-LE_Female_15_to_19 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_15_to_19")
 LE_Female_15_to_19$k_le <- 85.27 - 17
-LE_Female_20_to_24 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_20_to_24")
 LE_Female_20_to_24$k_le <- 85.27 - 22
-LE_Female_25_to_29 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_25_to_29")
 LE_Female_25_to_29$k_le <- 85.27 - 27
-LE_Female_30_to_34 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_30_to_34")
 LE_Female_30_to_34$k_le <- 85.27 - 32
-LE_Female_35_to_39 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_35_to_39")
 LE_Female_35_to_39$k_le <- 85.27 - 37
-LE_Female_40_to_44 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_40_to_44")
 LE_Female_40_to_44$k_le <- 85.27 - 42
-LE_Female_45_to_49 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_45_to_49")
 LE_Female_45_to_49$k_le <- 85.27 - 47
-LE_Female_50_to_54 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_50_to_54")
 LE_Female_50_to_54$k_le <- 85.27 - 52
-LE_Female_55_to_59 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_55_to_59")
 LE_Female_55_to_59$k_le <- 85.27 - 57
-LE_Female_60_to_64 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_60_to_64")
 LE_Female_60_to_64$k_le <- 85.27 - 62
-LE_Female_65_to_69 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_65_to_69")
 LE_Female_65_to_69$k_le <- 85.27 - 67
-LE_Female_70_to_74 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_70_to_74")
 LE_Female_70_to_74$k_le <- 85.27 - 72
-LE_Female_75_to_79 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_75_to_79")
 LE_Female_75_to_79$k_le <- 85.27 - 77
-LE_Female_80_to_84 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_80_to_84")
 LE_Female_80_to_84$k_le <- 85.27 - 82
-LE_Female_85_to_89 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_85_to_89")
 LE_Female_85_to_89$k_le <- 85.27 - 87
-LE_Female_90_to_94 <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                 sheet = "Female_90_to_94")
 LE_Female_90_to_94$k_le <- 85.27 - 92
-LE_Female_95_onwards <- read_excel("~/ASAR/Mental_health_econ_burden_india/11_JUL_23_MV_Economic_burden_male_and_female.xlsx",
-                                   sheet = "Female_95+")
 LE_Female_95_onwards$k_le <- 85.27 - 97
 
 
@@ -340,170 +347,230 @@ for( s in state_list){
                                  mvyll_90_94_ub = numeric(),mvyll_95_onwards_ub = numeric())
   r_val = 0.03
   
+  
   #K for males
-  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$Location == s)]
-  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$Location == s)]
-  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$Location == s)]
-  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$Location == s)]
-  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$Location == s)]
-  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$Location == s)]
-  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$Location == s)]
-  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$Location == s)]
-  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$Location == s)]
-  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$Location == s)]
-  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$Location == s)]
-  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$Location == s)]
-  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$Location == s)]
-  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$Location == s)]
-  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$Location == s)]
-  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$Location == s)]
-  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$Location == s)]
-  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$Location == s)]
+  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$location_name == s)]
+  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$location_name == s)]
+  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$location_name == s)]
+  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$location_name == s)]
+  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$location_name == s)]
+  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$location_name == s)]
+  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$location_name == s)]
+  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$location_name == s)]
+  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$location_name == s)]
+  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$location_name == s)]
+  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$location_name == s)]
+  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$location_name == s)]
+  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$location_name == s)]
+  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$location_name == s)]
+  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$location_name == s)]
+  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$location_name == s)]
+  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$location_name == s)]
+  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$location_name == s)]
   
   #K for females
-  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$Location == s)]
-  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$Location == s)]
-  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$Location == s)]
-  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$Location == s)]
-  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$Location == s)]
-  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$Location == s)]
-  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$Location == s)]
-  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$Location == s)]
-  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$Location == s)]
-  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$Location == s)]
-  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$Location == s)]
-  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$Location == s)]
-  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$Location == s)]
-  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$Location == s)]
-  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$Location == s)]
-  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$Location == s)]
-  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$Location == s)]
-  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$Location == s)]
+  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$location_name == s)]
+  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$location_name == s)]
+  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$location_name == s)]
+  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$location_name == s)]
+  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$location_name == s)]
+  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$location_name == s)]
+  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$location_name == s)]
+  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$location_name == s)]
+  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$location_name == s)]
+  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$location_name == s)]
+  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$location_name == s)]
+  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$location_name == s)]
+  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$location_name == s)]
+  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$location_name == s)]
+  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$location_name == s)]
+  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$location_name == s)]
+  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$location_name == s)]
+  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$location_name == s)]
   
   NGDP_val_state = State_GDP$`Non Health GSDP = GSDP_per_capita-TGHE_per_capita`[which(State_GDP$State == s)]
-  SD_10_14_state = Deaths_10_to_14$Value[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state = Deaths_15_to_19$Value[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state = Deaths_65_to_69$Value[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state = Deaths_70_to_74$Value[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state = Deaths_75_to_79$Value[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state = Deaths_80_to_84$Value[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state = Deaths_85_to_89$Value[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state = Deaths_90_to_94$Value[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state = Deaths_95_onwards$Value[which(Deaths_95_onwards$Location == s)]
   
-  # SD Lower bound values
-  SD_10_14_state_lb = Deaths_10_to_14$`Lower bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_lb = Deaths_15_to_19$`Lower bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_lb = Deaths_65_to_69$`Lower bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_lb = Deaths_70_to_74$`Lower bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_lb = Deaths_75_to_79$`Lower bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_lb = Deaths_80_to_84$`Lower bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_lb = Deaths_85_to_89$`Lower bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_lb = Deaths_90_to_94$`Lower bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_lb = Deaths_95_onwards$`Lower bound`[which(Deaths_95_onwards$Location == s)]
+
   
-  #SD Upper bound values
-  SD_10_14_state_ub = Deaths_10_to_14$`Upper bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_ub = Deaths_15_to_19$`Upper bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_ub = Deaths_65_to_69$`Upper bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_ub = Deaths_70_to_74$`Upper bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_ub = Deaths_75_to_79$`Upper bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_ub = Deaths_80_to_84$`Upper bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_ub = Deaths_85_to_89$`Upper bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_ub = Deaths_90_to_94$`Upper bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_ub = Deaths_95_onwards$`Upper bound`[which(Deaths_95_onwards$Location == s)]
+  #SD for males
+  SD_male_10_14_state = LE_Male_10_to_14$Value[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state = LE_Male_15_to_19$Value[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state = LE_Male_20_to_24$Value[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state = LE_Male_25_to_29$Value[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state = LE_Male_30_to_34$Value[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state = LE_Male_35_to_39$Value[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state = LE_Male_40_to_44$Value[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state = LE_Male_45_to_49$Value[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state = LE_Male_50_to_54$Value[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state = LE_Male_55_to_59$Value[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state = LE_Male_60_to_64$Value[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state = LE_Male_65_to_69$Value[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state = LE_Male_70_to_74$Value[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state = LE_Male_75_to_79$Value[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state = LE_Male_80_to_84$Value[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state = LE_Male_85_to_89$Value[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state = LE_Male_90_to_94$Value[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state = LE_Male_95_onwards$Value[which(LE_Male_95_onwards$location_name == s)]
   
-  # Place state name
-  #tmvyll_df_m_temp$state_name <- s
-  #tmvyll_df_m_temp$gender <- "Male"
+  #SD for females
+  SD_female_10_14_state = LE_Female_10_to_14$Value[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state = LE_Female_15_to_19$Value[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state = LE_Female_20_to_24$Value[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state = LE_Female_25_to_29$Value[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state = LE_Female_30_to_34$Value[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state = LE_Female_35_to_39$Value[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state = LE_Female_40_to_44$Value[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state = LE_Female_45_to_49$Value[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state = LE_Female_50_to_54$Value[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state = LE_Female_55_to_59$Value[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state = LE_Female_60_to_64$Value[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state = LE_Female_65_to_69$Value[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state = LE_Female_70_to_74$Value[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state = LE_Female_75_to_79$Value[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state = LE_Female_80_to_84$Value[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state = LE_Female_85_to_89$Value[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state = LE_Female_90_to_94$Value[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state = LE_Female_95_onwards$Value[which(LE_Female_95_onwards$location_name == s)]
   
-  #tmvyll_df_f_temp$state_name <- s
-  #tmvyll_df_f_temp$gender <- "Female"
+  #SD for males Upper bound
+  SD_male_10_14_state_ub = LE_Male_10_to_14$`Upper bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_ub = LE_Male_15_to_19$`Upper bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_ub = LE_Male_20_to_24$`Upper bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_ub = LE_Male_25_to_29$`Upper bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_ub = LE_Male_30_to_34$`Upper bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_ub = LE_Male_35_to_39$`Upper bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_ub = LE_Male_40_to_44$`Upper bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_ub = LE_Male_45_to_49$`Upper bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_ub = LE_Male_50_to_54$`Upper bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_ub = LE_Male_55_to_59$`Upper bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_ub = LE_Male_60_to_64$`Upper bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_ub = LE_Male_65_to_69$`Upper bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_ub = LE_Male_70_to_74$`Upper bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_ub = LE_Male_75_to_79$`Upper bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_ub = LE_Male_80_to_84$`Upper bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_ub = LE_Male_85_to_89$`Upper bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_ub = LE_Male_90_to_94$`Upper bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_ub = LE_Male_95_onwards$`Upper bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females upper bound
+  SD_female_10_14_state_ub = LE_Female_10_to_14$`Upper bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_ub = LE_Female_15_to_19$`Upper bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_ub = LE_Female_20_to_24$`Upper bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_ub = LE_Female_25_to_29$`Upper bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_ub = LE_Female_30_to_34$`Upper bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_ub = LE_Female_35_to_39$`Upper bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_ub = LE_Female_40_to_44$`Upper bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_ub = LE_Female_45_to_49$`Upper bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_ub = LE_Female_50_to_54$`Upper bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_ub = LE_Female_55_to_59$`Upper bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_ub = LE_Female_60_to_64$`Upper bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_ub = LE_Female_65_to_69$`Upper bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_ub = LE_Female_70_to_74$`Upper bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_ub = LE_Female_75_to_79$`Upper bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_ub = LE_Female_80_to_84$`Upper bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_ub = LE_Female_85_to_89$`Upper bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_ub = LE_Female_90_to_94$`Upper bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_ub = LE_Female_95_onwards$`Upper bound`[which(LE_Female_95_onwards$location_name == s)]
+  
+  #SD for males lower bound
+  SD_male_10_14_state_lb = LE_Male_10_to_14$`Lower bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_lb = LE_Male_15_to_19$`Lower bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_lb = LE_Male_20_to_24$`Lower bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_lb = LE_Male_25_to_29$`Lower bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_lb = LE_Male_30_to_34$`Lower bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_lb = LE_Male_35_to_39$`Lower bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_lb = LE_Male_40_to_44$`Lower bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_lb = LE_Male_45_to_49$`Lower bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_lb = LE_Male_50_to_54$`Lower bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_lb = LE_Male_55_to_59$`Lower bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_lb = LE_Male_60_to_64$`Lower bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_lb = LE_Male_65_to_69$`Lower bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_lb = LE_Male_70_to_74$`Lower bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_lb = LE_Male_75_to_79$`Lower bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_lb = LE_Male_80_to_84$`Lower bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_lb = LE_Male_85_to_89$`Lower bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_lb = LE_Male_90_to_94$`Lower bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_lb = LE_Male_95_onwards$`Lower bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females lower bound
+  SD_female_10_14_state_lb = LE_Female_10_to_14$`Lower bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_lb = LE_Female_15_to_19$`Lower bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_lb = LE_Female_20_to_24$`Lower bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_lb = LE_Female_25_to_29$`Lower bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_lb = LE_Female_30_to_34$`Lower bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_lb = LE_Female_35_to_39$`Lower bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_lb = LE_Female_40_to_44$`Lower bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_lb = LE_Female_45_to_49$`Lower bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_lb = LE_Female_50_to_54$`Lower bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_lb = LE_Female_55_to_59$`Lower bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_lb = LE_Female_60_to_64$`Lower bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_lb = LE_Female_65_to_69$`Lower bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_lb = LE_Female_70_to_74$`Lower bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_lb = LE_Female_75_to_79$`Lower bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_lb = LE_Female_80_to_84$`Lower bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_lb = LE_Female_85_to_89$`Lower bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_lb = LE_Female_90_to_94$`Lower bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_lb = LE_Female_95_onwards$`Lower bound`[which(LE_Female_95_onwards$location_name == s)]
+  
   
   
   #Males
   # send values for each sd for that state name
-  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
+  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_male_10_14_state,
+                                  SD_15_19 = SD_male_15_19_state,
+                                  SD_20_24 = SD_male_20_24_state, 
+                                  SD_25_29 = SD_male_25_29_state, 
+                                  SD_30_34 = SD_male_30_34_state,
+                                  SD_35_39 = SD_male_35_39_state, 
+                                  SD_40_44 = SD_male_40_44_state, 
+                                  SD_45_49 = SD_male_45_49_state,
+                                  SD_50_54 = SD_male_50_54_state, 
+                                  SD_55_59 = SD_male_55_59_state, 
+                                  SD_60_64 = SD_male_60_64_state,
+                                  SD_65_69 = SD_male_65_69_state, 
+                                  SD_70_74 = SD_male_70_74_state, 
+                                  SD_75_79 = SD_male_75_79_state,
+                                  SD_80_84 = SD_male_80_84_state, 
+                                  SD_85_89 = SD_male_85_89_state, 
+                                  SD_90_94 = SD_male_90_94_state,
+                                  SD_95_onwards = SD_male_95_onwards_state,
+                                  SD_10_14_lb = SD_male_10_14_state_lb,
+                                  SD_15_19_lb = SD_male_15_19_state_lb,
+                                  SD_20_24_lb = SD_male_20_24_state_lb, 
+                                  SD_25_29_lb = SD_male_25_29_state_lb, 
+                                  SD_30_34_lb = SD_male_30_34_state_lb,
+                                  SD_35_39_lb = SD_male_35_39_state_lb, 
+                                  SD_40_44_lb = SD_male_40_44_state_lb, 
+                                  SD_45_49_lb = SD_male_45_49_state_lb,
+                                  SD_50_54_lb = SD_male_50_54_state_lb, 
+                                  SD_55_59_lb = SD_male_55_59_state_lb, 
+                                  SD_60_64_lb = SD_male_60_64_state_lb,
+                                  SD_65_69_lb = SD_male_65_69_state_lb, 
+                                  SD_70_74_lb = SD_male_70_74_state_lb, 
+                                  SD_75_79_lb = SD_male_75_79_state_lb,
+                                  SD_80_84_lb = SD_male_80_84_state_lb, 
+                                  SD_85_89_lb = SD_male_85_89_state_lb, 
+                                  SD_90_94_lb = SD_male_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_male_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_male_10_14_state_ub,
+                                  SD_15_19_ub = SD_male_15_19_state_ub,
+                                  SD_20_24_ub = SD_male_20_24_state_ub, 
+                                  SD_25_29_ub = SD_male_25_29_state_ub, 
+                                  SD_30_34_ub = SD_male_30_34_state_ub,
+                                  SD_35_39_ub = SD_male_35_39_state_ub, 
+                                  SD_40_44_ub = SD_male_40_44_state_ub, 
+                                  SD_45_49_ub = SD_male_45_49_state_ub,
+                                  SD_50_54_ub = SD_male_50_54_state_ub, 
+                                  SD_55_59_ub = SD_male_55_59_state_ub, 
+                                  SD_60_64_ub = SD_male_60_64_state_ub,
+                                  SD_65_69_ub = SD_male_65_69_state_ub, 
+                                  SD_70_74_ub = SD_male_70_74_state_ub, 
+                                  SD_75_79_ub = SD_male_75_79_state_ub,
+                                  SD_80_84_ub = SD_male_80_84_state_ub, 
+                                  SD_85_89_ub = SD_male_85_89_state_ub, 
+                                  SD_90_94_ub = SD_male_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_male_95_onwards_state_ub,
+                                  
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_male_10_14_state,
@@ -524,6 +591,8 @@ for( s in state_list){
                                   k_85_89 = k_male_85_89_state, 
                                   k_90_94 = k_male_90_94_state,
                                   k_95_onwards = k_male_95_onwards_state)
+  
+  
   # save values in data frame
   print(head(tmvyll_val_m_temp))
   # return bound data frame
@@ -591,62 +660,60 @@ for( s in state_list){
   
   
   #Females
-  
-  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
-                                  
+  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_female_10_14_state,
+                                  SD_15_19 = SD_female_15_19_state,
+                                  SD_20_24 = SD_female_20_24_state, 
+                                  SD_25_29 = SD_female_25_29_state, 
+                                  SD_30_34 = SD_female_30_34_state,
+                                  SD_35_39 = SD_female_35_39_state, 
+                                  SD_40_44 = SD_female_40_44_state, 
+                                  SD_45_49 = SD_female_45_49_state,
+                                  SD_50_54 = SD_female_50_54_state, 
+                                  SD_55_59 = SD_female_55_59_state, 
+                                  SD_60_64 = SD_female_60_64_state,
+                                  SD_65_69 = SD_female_65_69_state, 
+                                  SD_70_74 = SD_female_70_74_state, 
+                                  SD_75_79 = SD_female_75_79_state,
+                                  SD_80_84 = SD_female_80_84_state, 
+                                  SD_85_89 = SD_female_85_89_state, 
+                                  SD_90_94 = SD_female_90_94_state,
+                                  SD_95_onwards = SD_female_95_onwards_state,
+                                  SD_10_14_lb = SD_female_10_14_state_lb,
+                                  SD_15_19_lb = SD_female_15_19_state_lb,
+                                  SD_20_24_lb = SD_female_20_24_state_lb, 
+                                  SD_25_29_lb = SD_female_25_29_state_lb, 
+                                  SD_30_34_lb = SD_female_30_34_state_lb,
+                                  SD_35_39_lb = SD_female_35_39_state_lb, 
+                                  SD_40_44_lb = SD_female_40_44_state_lb, 
+                                  SD_45_49_lb = SD_female_45_49_state_lb,
+                                  SD_50_54_lb = SD_female_50_54_state_lb, 
+                                  SD_55_59_lb = SD_female_55_59_state_lb, 
+                                  SD_60_64_lb = SD_female_60_64_state_lb,
+                                  SD_65_69_lb = SD_female_65_69_state_lb, 
+                                  SD_70_74_lb = SD_female_70_74_state_lb, 
+                                  SD_75_79_lb = SD_female_75_79_state_lb,
+                                  SD_80_84_lb = SD_female_80_84_state_lb, 
+                                  SD_85_89_lb = SD_female_85_89_state_lb, 
+                                  SD_90_94_lb = SD_female_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_female_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_female_10_14_state_ub,
+                                  SD_15_19_ub = SD_female_15_19_state_ub,
+                                  SD_20_24_ub = SD_female_20_24_state_ub, 
+                                  SD_25_29_ub = SD_female_25_29_state_ub, 
+                                  SD_30_34_ub = SD_female_30_34_state_ub,
+                                  SD_35_39_ub = SD_female_35_39_state_ub, 
+                                  SD_40_44_ub = SD_female_40_44_state_ub, 
+                                  SD_45_49_ub = SD_female_45_49_state_ub,
+                                  SD_50_54_ub = SD_female_50_54_state_ub, 
+                                  SD_55_59_ub = SD_female_55_59_state_ub, 
+                                  SD_60_64_ub = SD_female_60_64_state_ub,
+                                  SD_65_69_ub = SD_female_65_69_state_ub, 
+                                  SD_70_74_ub = SD_female_70_74_state_ub, 
+                                  SD_75_79_ub = SD_female_75_79_state_ub,
+                                  SD_80_84_ub = SD_female_80_84_state_ub, 
+                                  SD_85_89_ub = SD_female_85_89_state_ub, 
+                                  SD_90_94_ub = SD_female_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_female_95_onwards_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_female_10_14_state,
@@ -667,6 +734,7 @@ for( s in state_list){
                                   k_85_89 = k_female_85_89_state, 
                                   k_90_94 = k_female_90_94_state,
                                   k_95_onwards = k_female_95_onwards_state)
+  
   # save values in data frame
   print(head(tmvyll_val_f_temp))
   # return bound data frame
@@ -737,8 +805,8 @@ for( s in state_list){
 tmvyll_df_3_kle_usd <- tmvyll_df_3_kle
 tmvyll_df_3_kle_usd[,3:59] <- tmvyll_df_3_kle_usd[,3:59]/70.394
 
-write.csv(tmvyll_df_3_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r3_kle_INR.csv")
-write.csv(tmvyll_df_3_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r3_kle_USD.csv")
+write.csv(tmvyll_df_3_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r3_kle_INR.csv")
+write.csv(tmvyll_df_3_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r3_kle_USD.csv")
 
 ###################
 # r value is 5 percent
@@ -797,168 +865,227 @@ for( s in state_list){
   r_val = 0.05
   
   #K for males
-  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$Location == s)]
-  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$Location == s)]
-  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$Location == s)]
-  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$Location == s)]
-  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$Location == s)]
-  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$Location == s)]
-  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$Location == s)]
-  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$Location == s)]
-  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$Location == s)]
-  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$Location == s)]
-  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$Location == s)]
-  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$Location == s)]
-  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$Location == s)]
-  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$Location == s)]
-  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$Location == s)]
-  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$Location == s)]
-  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$Location == s)]
-  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$Location == s)]
+  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$location_name == s)]
+  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$location_name == s)]
+  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$location_name == s)]
+  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$location_name == s)]
+  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$location_name == s)]
+  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$location_name == s)]
+  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$location_name == s)]
+  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$location_name == s)]
+  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$location_name == s)]
+  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$location_name == s)]
+  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$location_name == s)]
+  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$location_name == s)]
+  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$location_name == s)]
+  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$location_name == s)]
+  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$location_name == s)]
+  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$location_name == s)]
+  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$location_name == s)]
+  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$location_name == s)]
   
   #K for females
-  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$Location == s)]
-  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$Location == s)]
-  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$Location == s)]
-  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$Location == s)]
-  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$Location == s)]
-  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$Location == s)]
-  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$Location == s)]
-  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$Location == s)]
-  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$Location == s)]
-  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$Location == s)]
-  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$Location == s)]
-  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$Location == s)]
-  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$Location == s)]
-  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$Location == s)]
-  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$Location == s)]
-  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$Location == s)]
-  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$Location == s)]
-  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$Location == s)]
+  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$location_name == s)]
+  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$location_name == s)]
+  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$location_name == s)]
+  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$location_name == s)]
+  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$location_name == s)]
+  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$location_name == s)]
+  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$location_name == s)]
+  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$location_name == s)]
+  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$location_name == s)]
+  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$location_name == s)]
+  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$location_name == s)]
+  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$location_name == s)]
+  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$location_name == s)]
+  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$location_name == s)]
+  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$location_name == s)]
+  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$location_name == s)]
+  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$location_name == s)]
+  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$location_name == s)]
   
   NGDP_val_state = State_GDP$`Non Health GSDP = GSDP_per_capita-TGHE_per_capita`[which(State_GDP$State == s)]
-  SD_10_14_state = Deaths_10_to_14$Value[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state = Deaths_15_to_19$Value[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state = Deaths_65_to_69$Value[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state = Deaths_70_to_74$Value[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state = Deaths_75_to_79$Value[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state = Deaths_80_to_84$Value[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state = Deaths_85_to_89$Value[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state = Deaths_90_to_94$Value[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state = Deaths_95_onwards$Value[which(Deaths_95_onwards$Location == s)]
-  # SD Lower bound values
-  SD_10_14_state_lb = Deaths_10_to_14$`Lower bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_lb = Deaths_15_to_19$`Lower bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_lb = Deaths_65_to_69$`Lower bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_lb = Deaths_70_to_74$`Lower bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_lb = Deaths_75_to_79$`Lower bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_lb = Deaths_80_to_84$`Lower bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_lb = Deaths_85_to_89$`Lower bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_lb = Deaths_90_to_94$`Lower bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_lb = Deaths_95_onwards$`Lower bound`[which(Deaths_95_onwards$Location == s)]
   
-  #SD Upper bound values
-  SD_10_14_state_ub = Deaths_10_to_14$`Upper bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_ub = Deaths_15_to_19$`Upper bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_ub = Deaths_65_to_69$`Upper bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_ub = Deaths_70_to_74$`Upper bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_ub = Deaths_75_to_79$`Upper bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_ub = Deaths_80_to_84$`Upper bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_ub = Deaths_85_to_89$`Upper bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_ub = Deaths_90_to_94$`Upper bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_ub = Deaths_95_onwards$`Upper bound`[which(Deaths_95_onwards$Location == s)]
   
-  # Place state name
-  #tmvyll_df_m_temp$state_name <- s
-  #tmvyll_df_m_temp$gender <- "Male"
   
-  #tmvyll_df_f_temp$state_name <- s
-  #tmvyll_df_f_temp$gender <- "Female"
+  #SD for males
+  SD_male_10_14_state = LE_Male_10_to_14$Value[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state = LE_Male_15_to_19$Value[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state = LE_Male_20_to_24$Value[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state = LE_Male_25_to_29$Value[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state = LE_Male_30_to_34$Value[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state = LE_Male_35_to_39$Value[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state = LE_Male_40_to_44$Value[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state = LE_Male_45_to_49$Value[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state = LE_Male_50_to_54$Value[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state = LE_Male_55_to_59$Value[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state = LE_Male_60_to_64$Value[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state = LE_Male_65_to_69$Value[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state = LE_Male_70_to_74$Value[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state = LE_Male_75_to_79$Value[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state = LE_Male_80_to_84$Value[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state = LE_Male_85_to_89$Value[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state = LE_Male_90_to_94$Value[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state = LE_Male_95_onwards$Value[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females
+  SD_female_10_14_state = LE_Female_10_to_14$Value[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state = LE_Female_15_to_19$Value[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state = LE_Female_20_to_24$Value[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state = LE_Female_25_to_29$Value[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state = LE_Female_30_to_34$Value[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state = LE_Female_35_to_39$Value[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state = LE_Female_40_to_44$Value[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state = LE_Female_45_to_49$Value[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state = LE_Female_50_to_54$Value[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state = LE_Female_55_to_59$Value[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state = LE_Female_60_to_64$Value[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state = LE_Female_65_to_69$Value[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state = LE_Female_70_to_74$Value[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state = LE_Female_75_to_79$Value[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state = LE_Female_80_to_84$Value[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state = LE_Female_85_to_89$Value[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state = LE_Female_90_to_94$Value[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state = LE_Female_95_onwards$Value[which(LE_Female_95_onwards$location_name == s)]
+  
+  #SD for males Upper bound
+  SD_male_10_14_state_ub = LE_Male_10_to_14$`Upper bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_ub = LE_Male_15_to_19$`Upper bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_ub = LE_Male_20_to_24$`Upper bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_ub = LE_Male_25_to_29$`Upper bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_ub = LE_Male_30_to_34$`Upper bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_ub = LE_Male_35_to_39$`Upper bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_ub = LE_Male_40_to_44$`Upper bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_ub = LE_Male_45_to_49$`Upper bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_ub = LE_Male_50_to_54$`Upper bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_ub = LE_Male_55_to_59$`Upper bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_ub = LE_Male_60_to_64$`Upper bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_ub = LE_Male_65_to_69$`Upper bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_ub = LE_Male_70_to_74$`Upper bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_ub = LE_Male_75_to_79$`Upper bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_ub = LE_Male_80_to_84$`Upper bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_ub = LE_Male_85_to_89$`Upper bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_ub = LE_Male_90_to_94$`Upper bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_ub = LE_Male_95_onwards$`Upper bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females upper bound
+  SD_female_10_14_state_ub = LE_Female_10_to_14$`Upper bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_ub = LE_Female_15_to_19$`Upper bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_ub = LE_Female_20_to_24$`Upper bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_ub = LE_Female_25_to_29$`Upper bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_ub = LE_Female_30_to_34$`Upper bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_ub = LE_Female_35_to_39$`Upper bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_ub = LE_Female_40_to_44$`Upper bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_ub = LE_Female_45_to_49$`Upper bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_ub = LE_Female_50_to_54$`Upper bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_ub = LE_Female_55_to_59$`Upper bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_ub = LE_Female_60_to_64$`Upper bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_ub = LE_Female_65_to_69$`Upper bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_ub = LE_Female_70_to_74$`Upper bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_ub = LE_Female_75_to_79$`Upper bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_ub = LE_Female_80_to_84$`Upper bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_ub = LE_Female_85_to_89$`Upper bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_ub = LE_Female_90_to_94$`Upper bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_ub = LE_Female_95_onwards$`Upper bound`[which(LE_Female_95_onwards$location_name == s)]
+  
+  #SD for males lower bound
+  SD_male_10_14_state_lb = LE_Male_10_to_14$`Lower bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_lb = LE_Male_15_to_19$`Lower bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_lb = LE_Male_20_to_24$`Lower bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_lb = LE_Male_25_to_29$`Lower bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_lb = LE_Male_30_to_34$`Lower bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_lb = LE_Male_35_to_39$`Lower bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_lb = LE_Male_40_to_44$`Lower bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_lb = LE_Male_45_to_49$`Lower bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_lb = LE_Male_50_to_54$`Lower bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_lb = LE_Male_55_to_59$`Lower bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_lb = LE_Male_60_to_64$`Lower bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_lb = LE_Male_65_to_69$`Lower bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_lb = LE_Male_70_to_74$`Lower bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_lb = LE_Male_75_to_79$`Lower bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_lb = LE_Male_80_to_84$`Lower bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_lb = LE_Male_85_to_89$`Lower bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_lb = LE_Male_90_to_94$`Lower bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_lb = LE_Male_95_onwards$`Lower bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females lower bound
+  SD_female_10_14_state_lb = LE_Female_10_to_14$`Lower bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_lb = LE_Female_15_to_19$`Lower bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_lb = LE_Female_20_to_24$`Lower bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_lb = LE_Female_25_to_29$`Lower bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_lb = LE_Female_30_to_34$`Lower bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_lb = LE_Female_35_to_39$`Lower bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_lb = LE_Female_40_to_44$`Lower bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_lb = LE_Female_45_to_49$`Lower bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_lb = LE_Female_50_to_54$`Lower bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_lb = LE_Female_55_to_59$`Lower bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_lb = LE_Female_60_to_64$`Lower bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_lb = LE_Female_65_to_69$`Lower bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_lb = LE_Female_70_to_74$`Lower bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_lb = LE_Female_75_to_79$`Lower bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_lb = LE_Female_80_to_84$`Lower bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_lb = LE_Female_85_to_89$`Lower bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_lb = LE_Female_90_to_94$`Lower bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_lb = LE_Female_95_onwards$`Lower bound`[which(LE_Female_95_onwards$location_name == s)]
   
   
   #Males
   # send values for each sd for that state name
-  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
+  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_male_10_14_state,
+                                  SD_15_19 = SD_male_15_19_state,
+                                  SD_20_24 = SD_male_20_24_state, 
+                                  SD_25_29 = SD_male_25_29_state, 
+                                  SD_30_34 = SD_male_30_34_state,
+                                  SD_35_39 = SD_male_35_39_state, 
+                                  SD_40_44 = SD_male_40_44_state, 
+                                  SD_45_49 = SD_male_45_49_state,
+                                  SD_50_54 = SD_male_50_54_state, 
+                                  SD_55_59 = SD_male_55_59_state, 
+                                  SD_60_64 = SD_male_60_64_state,
+                                  SD_65_69 = SD_male_65_69_state, 
+                                  SD_70_74 = SD_male_70_74_state, 
+                                  SD_75_79 = SD_male_75_79_state,
+                                  SD_80_84 = SD_male_80_84_state, 
+                                  SD_85_89 = SD_male_85_89_state, 
+                                  SD_90_94 = SD_male_90_94_state,
+                                  SD_95_onwards = SD_male_95_onwards_state,
+                                  SD_10_14_lb = SD_male_10_14_state_lb,
+                                  SD_15_19_lb = SD_male_15_19_state_lb,
+                                  SD_20_24_lb = SD_male_20_24_state_lb, 
+                                  SD_25_29_lb = SD_male_25_29_state_lb, 
+                                  SD_30_34_lb = SD_male_30_34_state_lb,
+                                  SD_35_39_lb = SD_male_35_39_state_lb, 
+                                  SD_40_44_lb = SD_male_40_44_state_lb, 
+                                  SD_45_49_lb = SD_male_45_49_state_lb,
+                                  SD_50_54_lb = SD_male_50_54_state_lb, 
+                                  SD_55_59_lb = SD_male_55_59_state_lb, 
+                                  SD_60_64_lb = SD_male_60_64_state_lb,
+                                  SD_65_69_lb = SD_male_65_69_state_lb, 
+                                  SD_70_74_lb = SD_male_70_74_state_lb, 
+                                  SD_75_79_lb = SD_male_75_79_state_lb,
+                                  SD_80_84_lb = SD_male_80_84_state_lb, 
+                                  SD_85_89_lb = SD_male_85_89_state_lb, 
+                                  SD_90_94_lb = SD_male_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_male_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_male_10_14_state_ub,
+                                  SD_15_19_ub = SD_male_15_19_state_ub,
+                                  SD_20_24_ub = SD_male_20_24_state_ub, 
+                                  SD_25_29_ub = SD_male_25_29_state_ub, 
+                                  SD_30_34_ub = SD_male_30_34_state_ub,
+                                  SD_35_39_ub = SD_male_35_39_state_ub, 
+                                  SD_40_44_ub = SD_male_40_44_state_ub, 
+                                  SD_45_49_ub = SD_male_45_49_state_ub,
+                                  SD_50_54_ub = SD_male_50_54_state_ub, 
+                                  SD_55_59_ub = SD_male_55_59_state_ub, 
+                                  SD_60_64_ub = SD_male_60_64_state_ub,
+                                  SD_65_69_ub = SD_male_65_69_state_ub, 
+                                  SD_70_74_ub = SD_male_70_74_state_ub, 
+                                  SD_75_79_ub = SD_male_75_79_state_ub,
+                                  SD_80_84_ub = SD_male_80_84_state_ub, 
+                                  SD_85_89_ub = SD_male_85_89_state_ub, 
+                                  SD_90_94_ub = SD_male_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_male_95_onwards_state_ub,
+                                  
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_male_10_14_state,
@@ -979,6 +1106,8 @@ for( s in state_list){
                                   k_85_89 = k_male_85_89_state, 
                                   k_90_94 = k_male_90_94_state,
                                   k_95_onwards = k_male_95_onwards_state)
+  
+  
   # save values in data frame
   print(tmvyll_val_m_temp)
   # return bound data frame
@@ -1046,61 +1175,60 @@ for( s in state_list){
   
   
   #Females
-  
-  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
+  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_female_10_14_state,
+                                  SD_15_19 = SD_female_15_19_state,
+                                  SD_20_24 = SD_female_20_24_state, 
+                                  SD_25_29 = SD_female_25_29_state, 
+                                  SD_30_34 = SD_female_30_34_state,
+                                  SD_35_39 = SD_female_35_39_state, 
+                                  SD_40_44 = SD_female_40_44_state, 
+                                  SD_45_49 = SD_female_45_49_state,
+                                  SD_50_54 = SD_female_50_54_state, 
+                                  SD_55_59 = SD_female_55_59_state, 
+                                  SD_60_64 = SD_female_60_64_state,
+                                  SD_65_69 = SD_female_65_69_state, 
+                                  SD_70_74 = SD_female_70_74_state, 
+                                  SD_75_79 = SD_female_75_79_state,
+                                  SD_80_84 = SD_female_80_84_state, 
+                                  SD_85_89 = SD_female_85_89_state, 
+                                  SD_90_94 = SD_female_90_94_state,
+                                  SD_95_onwards = SD_female_95_onwards_state,
+                                  SD_10_14_lb = SD_female_10_14_state_lb,
+                                  SD_15_19_lb = SD_female_15_19_state_lb,
+                                  SD_20_24_lb = SD_female_20_24_state_lb, 
+                                  SD_25_29_lb = SD_female_25_29_state_lb, 
+                                  SD_30_34_lb = SD_female_30_34_state_lb,
+                                  SD_35_39_lb = SD_female_35_39_state_lb, 
+                                  SD_40_44_lb = SD_female_40_44_state_lb, 
+                                  SD_45_49_lb = SD_female_45_49_state_lb,
+                                  SD_50_54_lb = SD_female_50_54_state_lb, 
+                                  SD_55_59_lb = SD_female_55_59_state_lb, 
+                                  SD_60_64_lb = SD_female_60_64_state_lb,
+                                  SD_65_69_lb = SD_female_65_69_state_lb, 
+                                  SD_70_74_lb = SD_female_70_74_state_lb, 
+                                  SD_75_79_lb = SD_female_75_79_state_lb,
+                                  SD_80_84_lb = SD_female_80_84_state_lb, 
+                                  SD_85_89_lb = SD_female_85_89_state_lb, 
+                                  SD_90_94_lb = SD_female_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_female_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_female_10_14_state_ub,
+                                  SD_15_19_ub = SD_female_15_19_state_ub,
+                                  SD_20_24_ub = SD_female_20_24_state_ub, 
+                                  SD_25_29_ub = SD_female_25_29_state_ub, 
+                                  SD_30_34_ub = SD_female_30_34_state_ub,
+                                  SD_35_39_ub = SD_female_35_39_state_ub, 
+                                  SD_40_44_ub = SD_female_40_44_state_ub, 
+                                  SD_45_49_ub = SD_female_45_49_state_ub,
+                                  SD_50_54_ub = SD_female_50_54_state_ub, 
+                                  SD_55_59_ub = SD_female_55_59_state_ub, 
+                                  SD_60_64_ub = SD_female_60_64_state_ub,
+                                  SD_65_69_ub = SD_female_65_69_state_ub, 
+                                  SD_70_74_ub = SD_female_70_74_state_ub, 
+                                  SD_75_79_ub = SD_female_75_79_state_ub,
+                                  SD_80_84_ub = SD_female_80_84_state_ub, 
+                                  SD_85_89_ub = SD_female_85_89_state_ub, 
+                                  SD_90_94_ub = SD_female_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_female_95_onwards_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_female_10_14_state,
@@ -1121,6 +1249,7 @@ for( s in state_list){
                                   k_85_89 = k_female_85_89_state, 
                                   k_90_94 = k_female_90_94_state,
                                   k_95_onwards = k_female_95_onwards_state)
+  
   # save values in data frame
   print(tmvyll_val_f_temp)
   # return bound data frame
@@ -1191,8 +1320,8 @@ for( s in state_list){
 tmvyll_df_5_kle_usd <- tmvyll_df_5_kle
 tmvyll_df_5_kle_usd[,3:59] <- tmvyll_df_5_kle_usd[,3:59]/70.394
 
-write.csv(tmvyll_df_5_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r5_kle_INR.csv")
-write.csv(tmvyll_df_5_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r5_kle_USD.csv")
+write.csv(tmvyll_df_5_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r5_kle_INR.csv")
+write.csv(tmvyll_df_5_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r5_kle_USD.csv")
 
 ###################
 # r value is 10 percent
@@ -1253,168 +1382,227 @@ for( s in state_list){
   r_val = 0.10
   
   #K for males
-  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$Location == s)]
-  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$Location == s)]
-  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$Location == s)]
-  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$Location == s)]
-  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$Location == s)]
-  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$Location == s)]
-  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$Location == s)]
-  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$Location == s)]
-  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$Location == s)]
-  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$Location == s)]
-  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$Location == s)]
-  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$Location == s)]
-  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$Location == s)]
-  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$Location == s)]
-  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$Location == s)]
-  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$Location == s)]
-  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$Location == s)]
-  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$Location == s)]
+  k_male_10_14_state = LE_Male_10_to_14$k_le[which(LE_Male_10_to_14$location_name == s)]
+  k_male_15_19_state = LE_Male_15_to_19$k_le[which(LE_Male_15_to_19$location_name == s)]
+  k_male_20_24_state = LE_Male_20_to_24$k_le[which(LE_Male_20_to_24$location_name == s)]
+  k_male_25_29_state = LE_Male_25_to_29$k_le[which(LE_Male_25_to_29$location_name == s)]
+  k_male_30_34_state = LE_Male_30_to_34$k_le[which(LE_Male_30_to_34$location_name == s)]
+  k_male_35_39_state = LE_Male_35_to_39$k_le[which(LE_Male_35_to_39$location_name == s)]
+  k_male_40_44_state = LE_Male_40_to_44$k_le[which(LE_Male_40_to_44$location_name == s)]
+  k_male_45_49_state = LE_Male_45_to_49$k_le[which(LE_Male_45_to_49$location_name == s)]
+  k_male_50_54_state = LE_Male_50_to_54$k_le[which(LE_Male_50_to_54$location_name == s)]
+  k_male_55_59_state = LE_Male_55_to_59$k_le[which(LE_Male_55_to_59$location_name == s)]
+  k_male_60_64_state = LE_Male_60_to_64$k_le[which(LE_Male_60_to_64$location_name == s)]
+  k_male_65_69_state = LE_Male_65_to_69$k_le[which(LE_Male_65_to_69$location_name == s)]
+  k_male_70_74_state = LE_Male_70_to_74$k_le[which(LE_Male_70_to_74$location_name == s)]
+  k_male_75_79_state = LE_Male_75_to_79$k_le[which(LE_Male_75_to_79$location_name == s)]
+  k_male_80_84_state = LE_Male_80_to_84$k_le[which(LE_Male_80_to_84$location_name == s)]
+  k_male_85_89_state = LE_Male_85_to_89$k_le[which(LE_Male_85_to_89$location_name == s)]
+  k_male_90_94_state = LE_Male_90_to_94$k_le[which(LE_Male_90_to_94$location_name == s)]
+  k_male_95_onwards_state = LE_Male_95_onwards$k_le[which(LE_Male_95_onwards$location_name == s)]
   
   #K for females
-  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$Location == s)]
-  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$Location == s)]
-  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$Location == s)]
-  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$Location == s)]
-  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$Location == s)]
-  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$Location == s)]
-  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$Location == s)]
-  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$Location == s)]
-  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$Location == s)]
-  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$Location == s)]
-  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$Location == s)]
-  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$Location == s)]
-  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$Location == s)]
-  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$Location == s)]
-  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$Location == s)]
-  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$Location == s)]
-  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$Location == s)]
-  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$Location == s)]
+  k_female_10_14_state = LE_Female_10_to_14$k_le[which(LE_Female_10_to_14$location_name == s)]
+  k_female_15_19_state = LE_Female_15_to_19$k_le[which(LE_Female_15_to_19$location_name == s)]
+  k_female_20_24_state = LE_Female_20_to_24$k_le[which(LE_Female_20_to_24$location_name == s)]
+  k_female_25_29_state = LE_Female_25_to_29$k_le[which(LE_Female_25_to_29$location_name == s)]
+  k_female_30_34_state = LE_Female_30_to_34$k_le[which(LE_Female_30_to_34$location_name == s)]
+  k_female_35_39_state = LE_Female_35_to_39$k_le[which(LE_Female_35_to_39$location_name == s)]
+  k_female_40_44_state = LE_Female_40_to_44$k_le[which(LE_Female_40_to_44$location_name == s)]
+  k_female_45_49_state = LE_Female_45_to_49$k_le[which(LE_Female_45_to_49$location_name == s)]
+  k_female_50_54_state = LE_Female_50_to_54$k_le[which(LE_Female_50_to_54$location_name == s)]
+  k_female_55_59_state = LE_Female_55_to_59$k_le[which(LE_Female_55_to_59$location_name == s)]
+  k_female_60_64_state = LE_Female_60_to_64$k_le[which(LE_Female_60_to_64$location_name == s)]
+  k_female_65_69_state = LE_Female_65_to_69$k_le[which(LE_Female_65_to_69$location_name == s)]
+  k_female_70_74_state = LE_Female_70_to_74$k_le[which(LE_Female_70_to_74$location_name == s)]
+  k_female_75_79_state = LE_Female_75_to_79$k_le[which(LE_Female_75_to_79$location_name == s)]
+  k_female_80_84_state = LE_Female_80_to_84$k_le[which(LE_Female_80_to_84$location_name == s)]
+  k_female_85_89_state = LE_Female_85_to_89$k_le[which(LE_Female_85_to_89$location_name == s)]
+  k_female_90_94_state = LE_Female_90_to_94$k_le[which(LE_Female_90_to_94$location_name == s)]
+  k_female_95_onwards_state = LE_Female_95_onwards$k_le[which(LE_Female_95_onwards$location_name == s)]
   
   NGDP_val_state = State_GDP$`Non Health GSDP = GSDP_per_capita-TGHE_per_capita`[which(State_GDP$State == s)]
-  SD_10_14_state = Deaths_10_to_14$Value[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state = Deaths_15_to_19$Value[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state = Deaths_20_to_24$Value[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state = Deaths_25_to_29$Value[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state = Deaths_30_to_34$Value[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state = Deaths_35_to_39$Value[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state = Deaths_40_to_44$Value[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state = Deaths_45_to_49$Value[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state = Deaths_50_to_54$Value[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state = Deaths_55_to_59$Value[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state = Deaths_60_to_64$Value[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state = Deaths_65_to_69$Value[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state = Deaths_70_to_74$Value[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state = Deaths_75_to_79$Value[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state = Deaths_80_to_84$Value[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state = Deaths_85_to_89$Value[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state = Deaths_90_to_94$Value[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state = Deaths_95_onwards$Value[which(Deaths_95_onwards$Location == s)]
-  # SD Lower bound values
-  SD_10_14_state_lb = Deaths_10_to_14$`Lower bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_lb = Deaths_15_to_19$`Lower bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_lb = Deaths_20_to_24$`Lower bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_lb = Deaths_25_to_29$`Lower bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_lb = Deaths_30_to_34$`Lower bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_lb = Deaths_35_to_39$`Lower bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_lb = Deaths_40_to_44$`Lower bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_lb = Deaths_45_to_49$`Lower bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_lb = Deaths_50_to_54$`Lower bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_lb = Deaths_55_to_59$`Lower bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_lb = Deaths_60_to_64$`Lower bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_lb = Deaths_65_to_69$`Lower bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_lb = Deaths_70_to_74$`Lower bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_lb = Deaths_75_to_79$`Lower bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_lb = Deaths_80_to_84$`Lower bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_lb = Deaths_85_to_89$`Lower bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_lb = Deaths_90_to_94$`Lower bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_lb = Deaths_95_onwards$`Lower bound`[which(Deaths_95_onwards$Location == s)]
   
-  #SD Upper bound values
-  SD_10_14_state_ub = Deaths_10_to_14$`Upper bound`[which(Deaths_10_to_14$Location == s)] 
-  SD_15_19_state_ub = Deaths_15_to_19$`Upper bound`[which(Deaths_15_to_19$Location == s)]
-  SD_20_24_state_ub = Deaths_20_to_24$`Upper bound`[which(Deaths_20_to_24$Location == s)]
-  SD_25_29_state_ub = Deaths_25_to_29$`Upper bound`[which(Deaths_25_to_29$Location == s)]
-  SD_30_34_state_ub = Deaths_30_to_34$`Upper bound`[which(Deaths_30_to_34$Location == s)]
-  SD_35_39_state_ub = Deaths_35_to_39$`Upper bound`[which(Deaths_35_to_39$Location == s)]
-  SD_40_44_state_ub = Deaths_40_to_44$`Upper bound`[which(Deaths_40_to_44$Location == s)]
-  SD_45_49_state_ub = Deaths_45_to_49$`Upper bound`[which(Deaths_45_to_49$Location == s)]
-  SD_50_54_state_ub = Deaths_50_to_54$`Upper bound`[which(Deaths_50_to_54$Location == s)]
-  SD_55_59_state_ub = Deaths_55_to_59$`Upper bound`[which(Deaths_55_to_59$Location == s)]
-  SD_60_64_state_ub = Deaths_60_to_64$`Upper bound`[which(Deaths_60_to_64$Location == s)]
-  SD_65_69_state_ub = Deaths_65_to_69$`Upper bound`[which(Deaths_65_to_69$Location == s)]
-  SD_70_74_state_ub = Deaths_70_to_74$`Upper bound`[which(Deaths_70_to_74$Location == s)]
-  SD_75_79_state_ub = Deaths_75_to_79$`Upper bound`[which(Deaths_75_to_79$Location == s)]
-  SD_80_84_state_ub = Deaths_80_to_84$`Upper bound`[which(Deaths_80_to_84$Location == s)]
-  SD_85_89_state_ub = Deaths_85_to_89$`Upper bound`[which(Deaths_85_to_89$Location == s)]
-  SD_90_94_state_ub = Deaths_90_to_94$`Upper bound`[which(Deaths_90_to_94$Location == s)]
-  SD_95_onwards_state_ub = Deaths_95_onwards$`Upper bound`[which(Deaths_95_onwards$Location == s)]
   
-  # Place state name
-  #tmvyll_df_m_temp$state_name <- s
-  #tmvyll_df_m_temp$gender <- "Male"
   
-  #tmvyll_df_f_temp$state_name <- s
-  #tmvyll_df_f_temp$gender <- "Female"
+  #SD for males
+  SD_male_10_14_state = LE_Male_10_to_14$Value[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state = LE_Male_15_to_19$Value[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state = LE_Male_20_to_24$Value[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state = LE_Male_25_to_29$Value[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state = LE_Male_30_to_34$Value[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state = LE_Male_35_to_39$Value[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state = LE_Male_40_to_44$Value[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state = LE_Male_45_to_49$Value[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state = LE_Male_50_to_54$Value[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state = LE_Male_55_to_59$Value[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state = LE_Male_60_to_64$Value[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state = LE_Male_65_to_69$Value[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state = LE_Male_70_to_74$Value[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state = LE_Male_75_to_79$Value[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state = LE_Male_80_to_84$Value[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state = LE_Male_85_to_89$Value[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state = LE_Male_90_to_94$Value[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state = LE_Male_95_onwards$Value[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females
+  SD_female_10_14_state = LE_Female_10_to_14$Value[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state = LE_Female_15_to_19$Value[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state = LE_Female_20_to_24$Value[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state = LE_Female_25_to_29$Value[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state = LE_Female_30_to_34$Value[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state = LE_Female_35_to_39$Value[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state = LE_Female_40_to_44$Value[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state = LE_Female_45_to_49$Value[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state = LE_Female_50_to_54$Value[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state = LE_Female_55_to_59$Value[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state = LE_Female_60_to_64$Value[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state = LE_Female_65_to_69$Value[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state = LE_Female_70_to_74$Value[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state = LE_Female_75_to_79$Value[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state = LE_Female_80_to_84$Value[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state = LE_Female_85_to_89$Value[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state = LE_Female_90_to_94$Value[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state = LE_Female_95_onwards$Value[which(LE_Female_95_onwards$location_name == s)]
+  
+  #SD for males Upper bound
+  SD_male_10_14_state_ub = LE_Male_10_to_14$`Upper bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_ub = LE_Male_15_to_19$`Upper bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_ub = LE_Male_20_to_24$`Upper bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_ub = LE_Male_25_to_29$`Upper bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_ub = LE_Male_30_to_34$`Upper bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_ub = LE_Male_35_to_39$`Upper bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_ub = LE_Male_40_to_44$`Upper bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_ub = LE_Male_45_to_49$`Upper bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_ub = LE_Male_50_to_54$`Upper bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_ub = LE_Male_55_to_59$`Upper bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_ub = LE_Male_60_to_64$`Upper bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_ub = LE_Male_65_to_69$`Upper bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_ub = LE_Male_70_to_74$`Upper bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_ub = LE_Male_75_to_79$`Upper bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_ub = LE_Male_80_to_84$`Upper bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_ub = LE_Male_85_to_89$`Upper bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_ub = LE_Male_90_to_94$`Upper bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_ub = LE_Male_95_onwards$`Upper bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females upper bound
+  SD_female_10_14_state_ub = LE_Female_10_to_14$`Upper bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_ub = LE_Female_15_to_19$`Upper bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_ub = LE_Female_20_to_24$`Upper bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_ub = LE_Female_25_to_29$`Upper bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_ub = LE_Female_30_to_34$`Upper bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_ub = LE_Female_35_to_39$`Upper bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_ub = LE_Female_40_to_44$`Upper bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_ub = LE_Female_45_to_49$`Upper bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_ub = LE_Female_50_to_54$`Upper bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_ub = LE_Female_55_to_59$`Upper bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_ub = LE_Female_60_to_64$`Upper bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_ub = LE_Female_65_to_69$`Upper bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_ub = LE_Female_70_to_74$`Upper bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_ub = LE_Female_75_to_79$`Upper bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_ub = LE_Female_80_to_84$`Upper bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_ub = LE_Female_85_to_89$`Upper bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_ub = LE_Female_90_to_94$`Upper bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_ub = LE_Female_95_onwards$`Upper bound`[which(LE_Female_95_onwards$location_name == s)]
+  
+  #SD for males lower bound
+  SD_male_10_14_state_lb = LE_Male_10_to_14$`Lower bound`[which(LE_Male_10_to_14$location_name == s)]
+  SD_male_15_19_state_lb = LE_Male_15_to_19$`Lower bound`[which(LE_Male_15_to_19$location_name == s)]
+  SD_male_20_24_state_lb = LE_Male_20_to_24$`Lower bound`[which(LE_Male_20_to_24$location_name == s)]
+  SD_male_25_29_state_lb = LE_Male_25_to_29$`Lower bound`[which(LE_Male_25_to_29$location_name == s)]
+  SD_male_30_34_state_lb = LE_Male_30_to_34$`Lower bound`[which(LE_Male_30_to_34$location_name == s)]
+  SD_male_35_39_state_lb = LE_Male_35_to_39$`Lower bound`[which(LE_Male_35_to_39$location_name == s)]
+  SD_male_40_44_state_lb = LE_Male_40_to_44$`Lower bound`[which(LE_Male_40_to_44$location_name == s)]
+  SD_male_45_49_state_lb = LE_Male_45_to_49$`Lower bound`[which(LE_Male_45_to_49$location_name == s)]
+  SD_male_50_54_state_lb = LE_Male_50_to_54$`Lower bound`[which(LE_Male_50_to_54$location_name == s)]
+  SD_male_55_59_state_lb = LE_Male_55_to_59$`Lower bound`[which(LE_Male_55_to_59$location_name == s)]
+  SD_male_60_64_state_lb = LE_Male_60_to_64$`Lower bound`[which(LE_Male_60_to_64$location_name == s)]
+  SD_male_65_69_state_lb = LE_Male_65_to_69$`Lower bound`[which(LE_Male_65_to_69$location_name == s)]
+  SD_male_70_74_state_lb = LE_Male_70_to_74$`Lower bound`[which(LE_Male_70_to_74$location_name == s)]
+  SD_male_75_79_state_lb = LE_Male_75_to_79$`Lower bound`[which(LE_Male_75_to_79$location_name == s)]
+  SD_male_80_84_state_lb = LE_Male_80_to_84$`Lower bound`[which(LE_Male_80_to_84$location_name == s)]
+  SD_male_85_89_state_lb = LE_Male_85_to_89$`Lower bound`[which(LE_Male_85_to_89$location_name == s)]
+  SD_male_90_94_state_lb = LE_Male_90_to_94$`Lower bound`[which(LE_Male_90_to_94$location_name == s)]
+  SD_male_95_onwards_state_lb = LE_Male_95_onwards$`Lower bound`[which(LE_Male_95_onwards$location_name == s)]
+  
+  #SD for females lower bound
+  SD_female_10_14_state_lb = LE_Female_10_to_14$`Lower bound`[which(LE_Female_10_to_14$location_name == s)]
+  SD_female_15_19_state_lb = LE_Female_15_to_19$`Lower bound`[which(LE_Female_15_to_19$location_name == s)]
+  SD_female_20_24_state_lb = LE_Female_20_to_24$`Lower bound`[which(LE_Female_20_to_24$location_name == s)]
+  SD_female_25_29_state_lb = LE_Female_25_to_29$`Lower bound`[which(LE_Female_25_to_29$location_name == s)]
+  SD_female_30_34_state_lb = LE_Female_30_to_34$`Lower bound`[which(LE_Female_30_to_34$location_name == s)]
+  SD_female_35_39_state_lb = LE_Female_35_to_39$`Lower bound`[which(LE_Female_35_to_39$location_name == s)]
+  SD_female_40_44_state_lb = LE_Female_40_to_44$`Lower bound`[which(LE_Female_40_to_44$location_name == s)]
+  SD_female_45_49_state_lb = LE_Female_45_to_49$`Lower bound`[which(LE_Female_45_to_49$location_name == s)]
+  SD_female_50_54_state_lb = LE_Female_50_to_54$`Lower bound`[which(LE_Female_50_to_54$location_name == s)]
+  SD_female_55_59_state_lb = LE_Female_55_to_59$`Lower bound`[which(LE_Female_55_to_59$location_name == s)]
+  SD_female_60_64_state_lb = LE_Female_60_to_64$`Lower bound`[which(LE_Female_60_to_64$location_name == s)]
+  SD_female_65_69_state_lb = LE_Female_65_to_69$`Lower bound`[which(LE_Female_65_to_69$location_name == s)]
+  SD_female_70_74_state_lb = LE_Female_70_to_74$`Lower bound`[which(LE_Female_70_to_74$location_name == s)]
+  SD_female_75_79_state_lb = LE_Female_75_to_79$`Lower bound`[which(LE_Female_75_to_79$location_name == s)]
+  SD_female_80_84_state_lb = LE_Female_80_to_84$`Lower bound`[which(LE_Female_80_to_84$location_name == s)]
+  SD_female_85_89_state_lb = LE_Female_85_to_89$`Lower bound`[which(LE_Female_85_to_89$location_name == s)]
+  SD_female_90_94_state_lb = LE_Female_90_to_94$`Lower bound`[which(LE_Female_90_to_94$location_name == s)]
+  SD_female_95_onwards_state_lb = LE_Female_95_onwards$`Lower bound`[which(LE_Female_95_onwards$location_name == s)]
   
   
   #Males
   # send values for each sd for that state name
-  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
+  tmvyll_val_m_temp = calc_tmvyll(SD_10_14 = SD_male_10_14_state,
+                                  SD_15_19 = SD_male_15_19_state,
+                                  SD_20_24 = SD_male_20_24_state, 
+                                  SD_25_29 = SD_male_25_29_state, 
+                                  SD_30_34 = SD_male_30_34_state,
+                                  SD_35_39 = SD_male_35_39_state, 
+                                  SD_40_44 = SD_male_40_44_state, 
+                                  SD_45_49 = SD_male_45_49_state,
+                                  SD_50_54 = SD_male_50_54_state, 
+                                  SD_55_59 = SD_male_55_59_state, 
+                                  SD_60_64 = SD_male_60_64_state,
+                                  SD_65_69 = SD_male_65_69_state, 
+                                  SD_70_74 = SD_male_70_74_state, 
+                                  SD_75_79 = SD_male_75_79_state,
+                                  SD_80_84 = SD_male_80_84_state, 
+                                  SD_85_89 = SD_male_85_89_state, 
+                                  SD_90_94 = SD_male_90_94_state,
+                                  SD_95_onwards = SD_male_95_onwards_state,
+                                  SD_10_14_lb = SD_male_10_14_state_lb,
+                                  SD_15_19_lb = SD_male_15_19_state_lb,
+                                  SD_20_24_lb = SD_male_20_24_state_lb, 
+                                  SD_25_29_lb = SD_male_25_29_state_lb, 
+                                  SD_30_34_lb = SD_male_30_34_state_lb,
+                                  SD_35_39_lb = SD_male_35_39_state_lb, 
+                                  SD_40_44_lb = SD_male_40_44_state_lb, 
+                                  SD_45_49_lb = SD_male_45_49_state_lb,
+                                  SD_50_54_lb = SD_male_50_54_state_lb, 
+                                  SD_55_59_lb = SD_male_55_59_state_lb, 
+                                  SD_60_64_lb = SD_male_60_64_state_lb,
+                                  SD_65_69_lb = SD_male_65_69_state_lb, 
+                                  SD_70_74_lb = SD_male_70_74_state_lb, 
+                                  SD_75_79_lb = SD_male_75_79_state_lb,
+                                  SD_80_84_lb = SD_male_80_84_state_lb, 
+                                  SD_85_89_lb = SD_male_85_89_state_lb, 
+                                  SD_90_94_lb = SD_male_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_male_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_male_10_14_state_ub,
+                                  SD_15_19_ub = SD_male_15_19_state_ub,
+                                  SD_20_24_ub = SD_male_20_24_state_ub, 
+                                  SD_25_29_ub = SD_male_25_29_state_ub, 
+                                  SD_30_34_ub = SD_male_30_34_state_ub,
+                                  SD_35_39_ub = SD_male_35_39_state_ub, 
+                                  SD_40_44_ub = SD_male_40_44_state_ub, 
+                                  SD_45_49_ub = SD_male_45_49_state_ub,
+                                  SD_50_54_ub = SD_male_50_54_state_ub, 
+                                  SD_55_59_ub = SD_male_55_59_state_ub, 
+                                  SD_60_64_ub = SD_male_60_64_state_ub,
+                                  SD_65_69_ub = SD_male_65_69_state_ub, 
+                                  SD_70_74_ub = SD_male_70_74_state_ub, 
+                                  SD_75_79_ub = SD_male_75_79_state_ub,
+                                  SD_80_84_ub = SD_male_80_84_state_ub, 
+                                  SD_85_89_ub = SD_male_85_89_state_ub, 
+                                  SD_90_94_ub = SD_male_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_male_95_onwards_state_ub,
+                                  
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_male_10_14_state,
@@ -1435,6 +1623,7 @@ for( s in state_list){
                                   k_85_89 = k_male_85_89_state, 
                                   k_90_94 = k_male_90_94_state,
                                   k_95_onwards = k_male_95_onwards_state)
+  
   # save values in data frame
   print(tmvyll_val_m_temp)
   # return bound data frame
@@ -1502,61 +1691,60 @@ for( s in state_list){
   
   
   #Females
-  
-  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_10_14_state,
-                                  SD_15_19 = SD_15_19_state,
-                                  SD_20_24 = SD_20_24_state, 
-                                  SD_25_29 = SD_25_29_state, 
-                                  SD_30_34 = SD_30_34_state,
-                                  SD_35_39 = SD_35_39_state, 
-                                  SD_40_44 = SD_40_44_state, 
-                                  SD_45_49 = SD_45_49_state,
-                                  SD_50_54 = SD_50_54_state, 
-                                  SD_55_59 = SD_55_59_state, 
-                                  SD_60_64 = SD_60_64_state,
-                                  SD_65_69 = SD_65_69_state, 
-                                  SD_70_74 = SD_70_74_state, 
-                                  SD_75_79 = SD_75_79_state,
-                                  SD_80_84 = SD_80_84_state, 
-                                  SD_85_89 = SD_85_89_state, 
-                                  SD_90_94 = SD_90_94_state,
-                                  SD_95_onwards = SD_95_onwards_state,
-                                  SD_10_14_lb = SD_10_14_state_lb,
-                                  SD_15_19_lb = SD_15_19_state_lb,
-                                  SD_20_24_lb = SD_20_24_state_lb, 
-                                  SD_25_29_lb = SD_25_29_state_lb, 
-                                  SD_30_34_lb = SD_30_34_state_lb,
-                                  SD_35_39_lb = SD_35_39_state_lb, 
-                                  SD_40_44_lb = SD_40_44_state_lb, 
-                                  SD_45_49_lb = SD_45_49_state_lb,
-                                  SD_50_54_lb = SD_50_54_state_lb, 
-                                  SD_55_59_lb = SD_55_59_state_lb, 
-                                  SD_60_64_lb = SD_60_64_state_lb,
-                                  SD_65_69_lb = SD_65_69_state_lb, 
-                                  SD_70_74_lb = SD_70_74_state_lb, 
-                                  SD_75_79_lb = SD_75_79_state_lb,
-                                  SD_80_84_lb = SD_80_84_state_lb, 
-                                  SD_85_89_lb = SD_85_89_state_lb, 
-                                  SD_90_94_lb = SD_90_94_state_lb,
-                                  SD_95_onwards_lb = SD_95_onwards_state_lb, 
-                                  SD_10_14_ub = SD_10_14_state_ub,
-                                  SD_15_19_ub = SD_15_19_state_ub,
-                                  SD_20_24_ub = SD_20_24_state_ub, 
-                                  SD_25_29_ub = SD_25_29_state_ub, 
-                                  SD_30_34_ub = SD_30_34_state_ub,
-                                  SD_35_39_ub = SD_35_39_state_ub, 
-                                  SD_40_44_ub = SD_40_44_state_ub, 
-                                  SD_45_49_ub = SD_45_49_state_ub,
-                                  SD_50_54_ub = SD_50_54_state_ub, 
-                                  SD_55_59_ub = SD_55_59_state_ub, 
-                                  SD_60_64_ub = SD_60_64_state_ub,
-                                  SD_65_69_ub = SD_65_69_state_ub, 
-                                  SD_70_74_ub = SD_70_74_state_ub, 
-                                  SD_75_79_ub = SD_75_79_state_ub,
-                                  SD_80_84_ub = SD_80_84_state_ub, 
-                                  SD_85_89_ub = SD_85_89_state_ub, 
-                                  SD_90_94_ub = SD_90_94_state_ub,
-                                  SD_95_onwards_ub = SD_95_onwards_state_ub,
+  tmvyll_val_f_temp = calc_tmvyll(SD_10_14 = SD_female_10_14_state,
+                                  SD_15_19 = SD_female_15_19_state,
+                                  SD_20_24 = SD_female_20_24_state, 
+                                  SD_25_29 = SD_female_25_29_state, 
+                                  SD_30_34 = SD_female_30_34_state,
+                                  SD_35_39 = SD_female_35_39_state, 
+                                  SD_40_44 = SD_female_40_44_state, 
+                                  SD_45_49 = SD_female_45_49_state,
+                                  SD_50_54 = SD_female_50_54_state, 
+                                  SD_55_59 = SD_female_55_59_state, 
+                                  SD_60_64 = SD_female_60_64_state,
+                                  SD_65_69 = SD_female_65_69_state, 
+                                  SD_70_74 = SD_female_70_74_state, 
+                                  SD_75_79 = SD_female_75_79_state,
+                                  SD_80_84 = SD_female_80_84_state, 
+                                  SD_85_89 = SD_female_85_89_state, 
+                                  SD_90_94 = SD_female_90_94_state,
+                                  SD_95_onwards = SD_female_95_onwards_state,
+                                  SD_10_14_lb = SD_female_10_14_state_lb,
+                                  SD_15_19_lb = SD_female_15_19_state_lb,
+                                  SD_20_24_lb = SD_female_20_24_state_lb, 
+                                  SD_25_29_lb = SD_female_25_29_state_lb, 
+                                  SD_30_34_lb = SD_female_30_34_state_lb,
+                                  SD_35_39_lb = SD_female_35_39_state_lb, 
+                                  SD_40_44_lb = SD_female_40_44_state_lb, 
+                                  SD_45_49_lb = SD_female_45_49_state_lb,
+                                  SD_50_54_lb = SD_female_50_54_state_lb, 
+                                  SD_55_59_lb = SD_female_55_59_state_lb, 
+                                  SD_60_64_lb = SD_female_60_64_state_lb,
+                                  SD_65_69_lb = SD_female_65_69_state_lb, 
+                                  SD_70_74_lb = SD_female_70_74_state_lb, 
+                                  SD_75_79_lb = SD_female_75_79_state_lb,
+                                  SD_80_84_lb = SD_female_80_84_state_lb, 
+                                  SD_85_89_lb = SD_female_85_89_state_lb, 
+                                  SD_90_94_lb = SD_female_90_94_state_lb,
+                                  SD_95_onwards_lb = SD_female_95_onwards_state_lb, 
+                                  SD_10_14_ub = SD_female_10_14_state_ub,
+                                  SD_15_19_ub = SD_female_15_19_state_ub,
+                                  SD_20_24_ub = SD_female_20_24_state_ub, 
+                                  SD_25_29_ub = SD_female_25_29_state_ub, 
+                                  SD_30_34_ub = SD_female_30_34_state_ub,
+                                  SD_35_39_ub = SD_female_35_39_state_ub, 
+                                  SD_40_44_ub = SD_female_40_44_state_ub, 
+                                  SD_45_49_ub = SD_female_45_49_state_ub,
+                                  SD_50_54_ub = SD_female_50_54_state_ub, 
+                                  SD_55_59_ub = SD_female_55_59_state_ub, 
+                                  SD_60_64_ub = SD_female_60_64_state_ub,
+                                  SD_65_69_ub = SD_female_65_69_state_ub, 
+                                  SD_70_74_ub = SD_female_70_74_state_ub, 
+                                  SD_75_79_ub = SD_female_75_79_state_ub,
+                                  SD_80_84_ub = SD_female_80_84_state_ub, 
+                                  SD_85_89_ub = SD_female_85_89_state_ub, 
+                                  SD_90_94_ub = SD_female_90_94_state_ub,
+                                  SD_95_onwards_ub = SD_female_95_onwards_state_ub,
                                   NGDP = NGDP_val_state, 
                                   r = r_val, 
                                   k_10_14 = k_female_10_14_state,
@@ -1577,6 +1765,8 @@ for( s in state_list){
                                   k_85_89 = k_female_85_89_state, 
                                   k_90_94 = k_female_90_94_state,
                                   k_95_onwards = k_female_95_onwards_state)
+  
+ 
   # save values in data frame
   print(tmvyll_val_f_temp)
   # return bound data frame
@@ -1646,5 +1836,5 @@ for( s in state_list){
 tmvyll_df_10_kle_usd <- tmvyll_df_10_kle
 tmvyll_df_10_kle_usd[,3:59] <- tmvyll_df_10_kle_usd[,3:59]/70.394
 
-write.csv(tmvyll_df_10_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r10_kle_INR.csv")
-write.csv(tmvyll_df_10_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Datasheets/UA_r10_kle_USD.csv")
+write.csv(tmvyll_df_10_kle, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r10_kle_INR.csv")
+write.csv(tmvyll_df_10_kle_usd, file = "~/ASAR/Mental_health_econ_burden_india/Reanalysis/Reanalysis24022025/Datasets/UA_r10_kle_USD.csv")
